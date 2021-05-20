@@ -87,6 +87,16 @@ function endpointToSchema(endpoint) {
   `;
 }
 
+function endpointToSchemaType(endpoint) {
+  const key = endpointToKey(endpoint);
+  return `
+  /**
+   * @see ${endpoint.documentationUrl}
+   */
+  ${key}
+  `;
+}
+
 function endpointToKey(endpoint) {
   return `"GET ${endpoint.url}"`;
 }
@@ -123,6 +133,11 @@ writeFileSync(
   "./src/generated/paginating-endpoints.ts",
   prettier.format(
     `
+    export type PaginatingEndpointTypes = "";
+    export type PaginatingEndpointsSchemas = {
+      ${sortEndpoints(endpoints).map(endpointToSchemaType).join(";\n")}
+    };
+
     export const paginatingEndpointSchemas: Record<string, unknown> = {
       ${sortEndpoints(endpoints).map(endpointToSchema).join(",\n")}
     }
