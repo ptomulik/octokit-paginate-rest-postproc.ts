@@ -9,7 +9,7 @@
 
 ### Description
 
-Provides callback function that limits number of entries returned by
+Provides callback functions that perform postprocessing of entries returned by
 [@octokit/plugin-paginate-rest.js](https://github.com/octokit/plugin-paginate-rest.js).
 
 The [paginate](https://github.com/octokit/plugin-paginate-rest.js#octokitpaginate)
@@ -17,8 +17,7 @@ method provided by [@octokit/plugin-paginate-rest.js](https://github.com/octokit
 fetches all available entries page-by-page and returns them gathered into a
 single array. The
 [octokit-paginate-rest-postproc.ts](https://github.com/ptomulik/octokit-paginate-rest-postproc.ts)
-allows to reduce the number of entries returned (and pages fetched) when
-only few first records are required.
+apply transformations to the returned entries.
 
 ## Usage
 
