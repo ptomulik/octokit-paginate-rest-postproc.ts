@@ -8,7 +8,7 @@ const { writeFileSync } = require("fs");
 
 const prettier = require("prettier");
 
-const ENDPOINTS = require("./generated/endpoints.json");
+const ENDPOINTS = require("./generated/descriptions.json");
 const endpoints = [];
 
 for (const endpoint of ENDPOINTS) {
