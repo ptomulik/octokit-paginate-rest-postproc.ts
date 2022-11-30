@@ -58,7 +58,7 @@ function main() {
   const owner = "github";
   const repo = "rest-api-description";
   const spath = "descriptions/api.github.com/api.github.com.json";
-  const url = `https://${host}/${owner}/${repo}/${tag}/${spath}`
+  const url = `https://${host}/${owner}/${repo}/${tag}/${spath}`;
   const dpath = path.resolve(__dirname, "generated", "descriptions.json");
   const file = fs.createWriteStream(dpath);
   const request = https.get(url, (response) => {
